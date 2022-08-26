@@ -52,8 +52,11 @@
         /* 小程序特有相关 */
         "appid" : "wx7e36befe89611437",
         "setting" : {
-            "urlCheck" : false
+            "urlCheck" : false,
+			// 关闭小程序调式黄颜色警告提示
+			"checkSiteMap": false
         },
+		
         "usingComponents" : true
     },
     "vueVersion" : "2"
