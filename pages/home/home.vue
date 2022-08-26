@@ -3,9 +3,9 @@
 		<!-- swiper -->
 		<swiper :indicator-dots="true" :autoplay="true" :interval="3000" :duration="1000" :circular="true">
 			<swiper-item v-for="item in swiperList" :key="item.goods_id">
-				<view class="swiper-item">
+				<navigator class="swiper-item" :url="'/subpkg/goods_dateil/goods_dateil'+'item.goods_id'">
 					<image :src="item.image_src"></image>
-				</view>
+				</navigator>
 			</swiper-item>
 		</swiper>
 	</view>
@@ -27,11 +27,7 @@
 					data: res
 				} = await uni.$http.get("home/swiperdata")
 				if (res.meta.status !== 200) {
-					uni.showToast({
-						title: '数据请求失败',
-						duration: 5000,
-						icon: 'error'
-					});
+					uni.$showMessage("数据请求失败", 5000, "error")
 
 				} else {
 					this.swiperList = res.message

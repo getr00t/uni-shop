@@ -2,13 +2,23 @@
 import Vue from 'vue'
 import App from './App'
 // 请求库
-import { $http } from '@escook/request-miniprogram'
+import {
+	$http
+} from '@escook/request-miniprogram'
 // 注册到uni
 uni.$http = $http
 
 // 请求根路径
 $http.baseUrl = 'https://api-hmugo-web.itheima.net/api/public/v1/'
 
+// 封装弹窗
+uni.$showMessage = function(title, duration, icon) {
+	uni.showToast({
+		title,
+		duration,
+		icon
+	});
+}
 // 请求拦截器
 $http.beforeRequest = function(options) {
 	uni.showLoading({
